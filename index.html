@@ -6,91 +6,83 @@
     <title>Para mi amado Lucas 🌻</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(180deg, #0b0914 0%, #161224 100%); color: #fff; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; overflow-x: hidden; position: relative; }
+        body { background: radial-gradient(circle at center, #1a1625 0%, #0b0914 100%); color: #fff; font-family: 'Segoe UI', Roboto, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; overflow-x: hidden; }
         
-        /* Fondo de estrellas parpadeantes */
-        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px), radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px); background-size: 550px 550px, 350px 350px; animation: starsTwinkle 4s linear infinite; opacity: 0.6; z-index: 0; }
-        @keyframes starsTwinkle { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.8; } }
+        h1 { font-size: 1.8rem; color: #ffd700; text-align: center; margin-top: 20px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
         
-        /* Título Principal */
-        h1 { font-size: 1.8rem; color: #ffd700; text-align: center; margin-top: 20px; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.3); font-weight: 600; z-index: 1; }
+        .flower-container { position: relative; margin: 30px 0; animation: floatBouquet 4s infinite ease-in-out; }
+        @keyframes floatBouquet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         
-        /* Contenedor del Ramo con Brillos y Efectos */
-        .flower-container { position: relative; width: 320px; height: 320px; margin: 10px 0; display: flex; justify-content: center; align-items: center; animation: growBouquet 1.8s ease-out forwards; z-index: 1; }
-        @keyframes growBouquet { 0% { transform: scale(0); opacity: 0; } 70% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
+        .flower-display { font-size: 140px; filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4)); }
         
-        /* El Ramo que funciona (Estilo Emoji/Ilustración) */
-        .flower-display { font-size: 150px; position: relative; filter: drop-shadow(0 0 35px rgba(255, 200, 0, 0.7)); user-select: none; }
+        /* Brillos */
+        .sparkle { position: absolute; background: white; border-radius: 50%; animation: twinkle 2s infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1); } }
         
-        /* Aura Dorada Detrás */
-        .gold-glow { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(255, 215, 0, 0) 70%); filter: blur(25px); pointer-events: none; }
+        .message-card { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 25px; 
+            padding: 25px; 
+            max-width: 350px; 
+            text-align: center; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+        }
         
-        /* Brillos flotantes animados */
-        .sparkles { position: absolute; width: 100%; height: 100%; pointer-events: none; }
-        .sparkle { position: absolute; background: #fff; border-radius: 50%; animation: floatSparkle 3s infinite ease-in-out; box-shadow: 0 0 10px #ffd700, 0 0 15px #fff; }
-        @keyframes floatSparkle { 0%, 100% { transform: translateY(0) scale(0.4); opacity: 0; } 50% { transform: translateY(-40px) scale(1.3); opacity: 1; } }
-        
-        /* Carta de Amor / Dedicatoria */
-        .message-card { background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 22px; width: 100%; max-width: 350px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); margin-bottom: 20px; z-index: 2; position: relative; }
-        .message-card p { font-size: 1rem; line-height: 1.6; color: #f3f0ff; }
         .highlight { color: #ffd700; font-weight: bold; }
-        .card-sparkle { position: absolute; font-size: 1.2rem; color: #ffd700; opacity: 0.7; }
+        .heart { display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
         
-        /* Sección del Contador con Bordes Dorados y Luces */
-        .counter-box { background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 15px; width: 100%; max-width: 350px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); margin-bottom: 30px; z-index: 2; position: relative; }
-        .counter-box h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: #e3dcff; margin-bottom: 12px; }
-        .timer { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
-        .time-segment { background: rgba(15, 12, 26, 0.7); padding: 8px 4px; border-radius: 8px; border-bottom: 2px solid #ffd700; }
-        .time-number { font-size: 1.1rem; font-weight: bold; color: #fff; display: block; }
-        .time-label { font-size: 0.6rem; color: #bfaeff; text-transform: uppercase; margin-top: 2px; display: block; }
+        .counter-box { 
+            background: rgba(255, 215, 0, 0.05); 
+            border: 1px solid rgba(255, 215, 0, 0.2); 
+            border-radius: 20px; 
+            padding: 20px; 
+            max-width: 350px; 
+            text-align: center; 
+        }
+        .timer { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .time-segment { background: rgba(0,0,0,0.3); padding: 10px 5px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .time-number { font-size: 1.1rem; font-weight: bold; color: #ffd700; }
+        .time-label { font-size: 0.6rem; color: #aaa; text-transform: uppercase; display: block; }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
     <h1>Para mi amado Lucas 🌻</h1>
     
     <div class="flower-container">
-        <div class="gold-glow"></div>
-        <div class="sparkles">
-            <div class="sparkle" style="top: 15%; left: 15%; width: 5px; height: 5px; animation-delay: 0s;"></div>
-            <div class="sparkle" style="top: 35%; left: 85%; width: 7px; height: 7px; animation-delay: 0.4s;"></div>
-            <div class="sparkle" style="top: 65%; left: 10%; width: 6px; height: 6px; animation-delay: 0.8s;"></div>
-            <div class="sparkle" style="top: 20%; left: 75%; width: 5px; height: 5px; animation-delay: 1.2s;"></div>
-            <div class="sparkle" style="top: 55%; left: 80%; width: 6px; height: 6px; animation-delay: 1.6s;"></div>
-        </div>
         <div class="flower-display">💐</div>
+        <div class="sparkle" style="top: 0; left: 20px; width: 6px; height: 6px;"></div>
+        <div class="sparkle" style="top: 20px; right: 0; width: 4px; height: 4px;"></div>
     </div>
 
     <div class="message-card">
-        <div class="card-sparkle" style="top: 10px; right: 10px;">✨</div>
-        <div class="card-sparkle" style="bottom: 10px; left: 10px;">✨</div>
-        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. Te amo, feliz primer mes. 💛🌻✨</p>
+        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. Te amo, feliz primer mes. <span class="heart">💛</span>🌻✨</p>
     </div>
 
     <div class="counter-box">
-        <h2>Tiempo Juntos</h2>
+        <h2 style="font-size: 0.9rem; margin-bottom: 10px; color: #ffd700;">TIEMPO JUNTOS</h2>
         <div class="timer">
-            <div class="time-segment"><span class="time-number" id="months">01</span><span class="time-label">Meses</span></div>
+            <div class="time-segment"><span class="time-number" id="months">00</span><span class="time-label">Meses</span></div>
             <div class="time-segment"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
-            <div class="time-segment"><span class="time-number" id="hours">07</span><span class="time-label">Hrs</span></div>
-            <div class="time-segment"><span class="time-number" id="minutes">46</span><span class="time-label">Min</span></div>
-            <div class="time-segment"><span class="time-number" id="seconds">55</span><span class="time-label">Seg</span></div>
+            <div class="time-segment"><span class="time-number" id="hours">00</span><span class="time-label">Hrs</span></div>
+            <div class="time-segment"><span class="time-number" id="minutes">00</span><span class="time-label">Min</span></div>
+            <div class="time-segment"><span class="time-number" id="seconds">00</span><span class="time-label">Seg</span></div>
         </div>
     </div>
+
     <script>
         const startDate = new Date('2026-04-25T00:00:00');
         function updateCounter() {
             const now = new Date();
-            let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-            let tempDate = new Date(startDate);
-            tempDate.setMonth(tempDate.getMonth() + months);
-            if (tempDate > now) { months--; tempDate = new Date(startDate); tempDate.setMonth(tempDate.getMonth() + months); }
-            const diff = now - tempDate;
-            document.getElementById('months').innerText = String(months).padStart(2, '0');
-            document.getElementById('days').innerText = String(Math.floor(diff / (1000*60*60*24))).padStart(2, '0');
-            document.getElementById('hours').innerText = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2, '0');
+            let diff = now - startDate;
+            document.getElementById('months').innerText = Math.floor(diff / (1000*60*60*24*30)).toString().padStart(2, '0');
+            document.getElementById('days').innerText = Math.floor((diff / (1000*60*60*24)) % 30).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60).toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
         }
         setInterval(updateCounter, 1000);
         updateCounter();

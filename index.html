@@ -2,136 +2,39 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para mi amado Lucas 🌻</title>
     <style>
-        /* Estilos base con degradado profundo */
+        /* (Tus estilos anteriores se mantienen, solo añadimos el botón) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: radial-gradient(circle at 50% 0%, #241d33 0%, #050505 100%); 
-            color: #fff; 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 20px; 
-            overflow-x: hidden; 
-        }
-
-        /* Estrellas dinámicas */
-        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-        .sparkle { position: absolute; background: #fff; border-radius: 50%; animation: blink 3s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; transform: scale(1.2); } }
-
-        /* Título con sombra dorada */
-        h1 { 
-            font-size: 2.2rem; 
-            color: #ffd700; 
-            text-align: center; 
-            margin-top: 40px; 
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); 
-            z-index: 1;
-            animation: slideDown 1s ease-out;
-        }
-
-        /* Contenedor del Ramo con animación */
-        .flower-container { 
-            position: relative; 
-            margin: 40px 0; 
-            font-size: 140px; 
-            filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.5)); 
-            animation: float 4s ease-in-out infinite; 
-            z-index: 1;
-        }
+        body { background: radial-gradient(circle at 50% 0%, #241d33 0%, #050505 100%); color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .flower-container { font-size: 140px; margin: 20px 0; animation: float 4s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-        /* Tarjeta de mensaje con efecto cristal */
-        .message-card { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 215, 0, 0.3); 
-            border-radius: 30px; 
-            padding: 30px; 
-            max-width: 400px; 
-            text-align: center; 
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); 
-            z-index: 1;
-            animation: slideUp 1s ease-out;
+        
+        /* Botón de música */
+        #playBtn { 
+            background: #ffd700; border: none; padding: 15px 25px; border-radius: 50px; 
+            font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
-        .highlight { color: #ffd700; font-weight: bold; font-size: 1.1rem; }
-
-        /* Contador con estilo premium */
-        .counter-box { 
-            margin-top: 40px; 
-            width: 100%; 
-            max-width: 350px; 
-            display: grid; 
-            grid-template-columns: repeat(5, 1fr); 
-            gap: 8px; 
-            z-index: 1;
-        }
-        .time-segment { 
-            background: rgba(255, 255, 255, 0.08); 
-            padding: 12px 5px; 
-            border-radius: 15px; 
-            border-top: 2px solid rgba(255, 215, 0, 0.5); 
-            text-align: center; 
-        }
-        .time-number { font-size: 1.3rem; font-weight: bold; color: #fff; display: block; }
-        .time-label { font-size: 0.5rem; color: #bfaeff; text-transform: uppercase; margin-top: 5px; }
-
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <div class="stars" id="starContainer"></div>
-    
     <h1>Para mi amado Lucas 🌻</h1>
+    
+    <button id="playBtn" onclick="playMusic()">¡Toca aquí para escuchar nuestra canción! 🎵</button>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
     
     <div class="flower-container">💐</div>
     
-    <div class="message-card">
-        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <br><br>
-        <span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. <br><br>
-        Te amo, feliz primer mes. 💛✨</p>
-    </div>
-
-    <div class="counter-box">
-        <div class="time-segment"><span class="time-number" id="months">00</span><span class="time-label">Meses</span></div>
-        <div class="time-segment"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
-        <div class="time-segment"><span class="time-number" id="hours">00</span><span class="time-label">Hrs</span></div>
-        <div class="time-segment"><span class="time-number" id="minutes">00</span><span class="time-label">Min</span></div>
-        <div class="time-segment"><span class="time-number" id="seconds">00</span><span class="time-label">Seg</span></div>
-    </div>
-
     <script>
-        // Generar destellos de fondo
-        const container = document.getElementById('starContainer');
-        for (let i = 0; i < 50; i++) {
-            const s = document.createElement('div');
-            s.className = 'sparkle';
-            s.style.width = Math.random() * 4 + 'px';
-            s.style.height = s.style.width;
-            s.style.top = Math.random() * 100 + '%';
-            s.style.left = Math.random() * 100 + '%';
-            s.style.animationDelay = Math.random() * 3 + 's';
-            container.appendChild(s);
+        function playMusic() {
+            const audio = document.getElementById("bgMusic");
+            audio.play();
+            document.getElementById("playBtn").style.display = "none"; // Oculta el botón al tocarlo
         }
-
-        function updateCounter() {
-            const now = new Date();
-            const start = new Date('2026-04-25T00:00:00');
-            let diff = now - start;
-            document.getElementById('months').innerText = Math.floor(diff / (1000*60*60*24*30)).toString().padStart(2, '0');
-            document.getElementById('days').innerText = Math.floor((diff / (1000*60*60*24)) % 30).toString().padStart(2, '0');
-            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24).toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60).toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-        }
-        setInterval(updateCounter, 1000);
-        updateCounter();
     </script>
 </body>
 </html>

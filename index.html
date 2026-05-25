@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Primer Mes 🌻</title>
+    <title>Para mi amado Lucas 🌻</title>
     <style>
         * {
             margin: 0;
@@ -55,17 +55,17 @@
             color: #ffd700;
             text-align: center;
             margin-top: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.3);
             font-weight: 600;
         }
 
-        /* Contenedor del Ramo de Girasoles Animado */
+        /* Contenedor del Ramo de Girasoles */
         .sunflower-container {
             position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 15px 0;
+            width: 320px;
+            height: 320px;
+            margin: 10px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -73,18 +73,20 @@
         }
 
         @keyframes growBouquet {
-            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
-            70% { transform: scale(1.05) rotate(3deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .sunflower-svg {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 15px rgba(255, 200, 0, 0.4));
+        /* Imagen del Ramo Artístico que te gustó */
+        .sunflower-img {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(255, 200, 0, 0.55));
         }
 
-        /* Brillos flotantes alrededor de las flores */
+        /* Brillos flotantes dorados */
         .sparkles {
             position: absolute;
             width: 100%;
@@ -97,12 +99,12 @@
             background: #fff;
             border-radius: 50%;
             animation: floatSparkle 3s infinite ease-in-out;
-            box-shadow: 0 0 8px #ffd700, 0 0 12px #fff;
+            box-shadow: 0 0 10px #ffd700, 0 0 15px #fff;
         }
 
         @keyframes floatSparkle {
-            0%, 100% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+            0%, 100% { transform: translateY(0) scale(0.4); opacity: 0; }
+            50% { transform: translateY(-40px) scale(1.3); opacity: 1; }
         }
 
         /* Carta de Amor / Dedicatoria */
@@ -118,6 +120,7 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
+            z-index: 2;
         }
 
         .message-card p {
@@ -142,6 +145,7 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
+            z-index: 2;
         }
 
         .counter-box h2 {
@@ -189,44 +193,15 @@
 
     <div class="sunflower-container">
         <div class="sparkles">
-            <div class="sparkle" style="top: 20%; left: 20%; animation-delay: 0s; width: 4px; height: 4px;"></div>
-            <div class="sparkle" style="top: 40%; left: 80%; animation-delay: 0.5s; width: 6px; height: 6px;"></div>
-            <div class="sparkle" style="top: 70%; left: 15%; animation-delay: 1s; width: 5px; height: 5px;"></div>
-            <div class="sparkle" style="top: 10%; left: 65%; animation-delay: 1.5s; width: 4px; height: 4px;"></div>
-            <div class="sparkle" style="top: 60%; left: 75%; animation-delay: 2s; width: 5px; height: 5px;"></div>
+            <div class="sparkle" style="top: 15%; left: 15%; animation-delay: 0s; width: 5px; height: 5px;"></div>
+            <div class="sparkle" style="top: 35%; left: 85%; animation-delay: 0.4s; width: 7px; height: 7px;"></div>
+            <div class="sparkle" style="top: 65%; left: 10%; animation-delay: 0.8s; width: 6px; height: 6px;"></div>
+            <div class="sparkle" style="top: 20%; left: 75%; animation-delay: 1.2s; width: 5px; height: 5px;"></div>
+            <div class="sparkle" style="top: 55%; left: 80%; animation-delay: 1.6s; width: 6px; height: 6px;"></div>
+            <div class="sparkle" style="top: 75%; left: 45%; animation-delay: 2s; width: 4px; height: 4px;"></div>
         </div>
         
-        <svg class="sunflower-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g id="bouquet">
-                <path d="M100,130 Q90,180 85,200 M100,130 Q100,180 100,200 M100,130 Q110,180 115,200" stroke="#2e5c1e" stroke-width="4" stroke-linecap="round" fill="none"/>
-                <path d="M85,150 Q65,145 75,135 Q85,140 88,152 Z" fill="#3a7327"/>
-                <path d="M115,155 Q135,150 125,140 Q115,145 112,157 Z" fill="#3a7327"/>
-                <path d="M95,170 Q75,175 80,160 Q90,165 94,171 Z" fill="#3a7327"/>
-                <pax d="M105,170 Q125,175 120,160 Q110,165 106,171 Z" fill="#3a7327"/>
-                <rect x="90" y="175" width="20" height="6" rx="3" fill="#c92222" transform="rotate(-5 100 175)"/> 
-
-                <g transform="translate(65, 95) scale(0.65)">
-                    <g fill="#ffbb00"><circle cx="0" cy="0" r="35" transform="rotate(0)"/><circle cx="0" cy="0" r="35" transform="rotate(15)"/><circle cx="0" cy="0" r="35" transform="rotate(30)"/><circle cx="0" cy="0" r="35" transform="rotate(45)"/><circle cx="0" cy="0" r="35" transform="rotate(60)"/><circle cx="0" cy="0" r="35" transform="rotate(75)"/></g>
-                    <g fill="#ffa200" transform="scale(0.85)"><circle cx="0" cy="0" r="35" transform="rotate(5)"/><circle cx="0" cy="0" r="35" transform="rotate(20)"/><circle cx="0" cy="0" r="35" transform="rotate(35)"/><circle cx="0" cy="0" r="35" transform="rotate(50)"/><circle cx="0" cy="0" r="35" transform="rotate(65)"/><circle cx="0" cy="0" r="35" transform="rotate(80)"/></g>
-                    <circle cx="0" cy="0" r="16" fill="#3d1f05"/>
-                    <circle cx="0" cy="0" r="12" fill="#241202" stroke="#522b0a" stroke-width="1" stroke-dasharray="2,1"/>
-                </g>
-
-                <g transform="translate(135, 95) scale(0.65)">
-                    <g fill="#ffbb00"><circle cx="0" cy="0" r="35" transform="rotate(8)"/><circle cx="0" cy="0" r="35" transform="rotate(23)"/><circle cx="0" cy="0" r="35" transform="rotate(38)"/><circle cx="0" cy="0" r="35" transform="rotate(53)"/><circle cx="0" cy="0" r="35" transform="rotate(68)"/><circle cx="0" cy="0" r="35" transform="rotate(83)"/></g>
-                    <g fill="#ffa200" transform="scale(0.85)"><circle cx="0" cy="0" r="35" transform="rotate(12)"/><circle cx="0" cy="0" r="35" transform="rotate(27)"/><circle cx="0" cy="0" r="35" transform="rotate(42)"/><circle cx="0" cy="0" r="35" transform="rotate(57)"/><circle cx="0" cy="0" r="35" transform="rotate(72)"/><circle cx="0" cy="0" r="35" transform="rotate(87)"/></g>
-                    <circle cx="0" cy="0" r="16" fill="#3d1f05"/>
-                    <circle cx="0" cy="0" r="12" fill="#241202" stroke="#522b0a" stroke-width="1" stroke-dasharray="2,1"/>
-                </g>
-
-                <g transform="translate(100, 80) scale(0.85)">
-                    <g fill="#ffcc00"><circle cx="0" cy="0" r="35" transform="rotate(0)"/><circle cx="0" cy="0" r="35" transform="rotate(15)"/><circle cx="0" cy="0" r="35" transform="rotate(30)"/><circle cx="0" cy="0" r="35" transform="rotate(45)"/><circle cx="0" cy="0" r="35" transform="rotate(60)"/><circle cx="0" cy="0" r="35" transform="rotate(75)"/></g>
-                    <g fill="#ffaa00" transform="scale(0.88)"><circle cx="0" cy="0" r="35" transform="rotate(7)"/><circle cx="0" cy="0" r="35" transform="rotate(22)"/><circle cx="0" cy="0" r="35" transform="rotate(37)"/><circle cx="0" cy="0" r="35" transform="rotate(52)"/><circle cx="0" cy="0" r="35" transform="rotate(67)"/><circle cx="0" cy="0" r="35" transform="rotate(82)"/></g>
-                    <circle cx="0" cy="0" r="18" fill="#361a03"/>
-                    <circle cx="0" cy="0" r="14" fill="#1f0f02" stroke="#4a2302" stroke-width="1,5" stroke-dasharray="3,1"/>
-                </g>
-            </g>
-        </svg>
+        <img class="sunflower-img" src="https://i.ibb.co/6wX63Ym/girasoles-arte.png" alt="Ramo de Girasoles">
     </div>
 
     <div class="message-card">
@@ -260,19 +235,12 @@
     </div>
 
     <script>
-        // Fecha de inicio: 25 de Abril de 2026 (Ajusta la hora si quieres que sea exacta)
+        // Fecha de inicio: 25 de Abril de 2026
         const startDate = new Date('2026-04-25T00:00:00');
 
         function updateCounter() {
             const now = new Date();
-            
-            // Cálculos aproximados/exactos de tiempo transcurrido
-            let diffTime = Math.abs(now - startDate);
-
-            // Calcular meses completos de diferencia
             let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-            
-            // Si el día actual es menor que el día de inicio, restamos un mes y calculamos los días restantes
             let tempDate = new Date(startDate);
             tempDate.setMonth(tempDate.getMonth() + months);
             
@@ -283,13 +251,11 @@
             }
 
             const remainingDiff = now - tempDate;
-            
             const days = Math.floor(remainingDiff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((remainingDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((remainingDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((remainingDiff % (1000 * 60)) / 1000);
 
-            // Colocar los valores en la página web
             document.getElementById('months').innerText = String(months).padStart(2, '0');
             document.getElementById('days').innerText = String(days).padStart(2, '0');
             document.getElementById('hours').innerText = String(hours).padStart(2, '0');
@@ -297,7 +263,6 @@
             document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         }
 
-        // Actualizar cada segundo de forma automática
         setInterval(updateCounter, 1000);
         updateCounter();
     </script>

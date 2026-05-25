@@ -266,46 +266,4 @@
         updateCounter();
     </script>
 </body>
-</html> 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amado Lucas 🌻</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(180deg, #0b0914 0%, #161224 100%); color: #fff; font-family: sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        h1 { color: #ffd700; margin: 20px 0; text-align: center; }
-        .sunflower-img { width: 300px; height: auto; margin: 20px 0; border-radius: 10px; }
-        .message-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; max-width: 350px; text-align: center; }
-        .timer { display: flex; gap: 10px; margin-top: 20px; }
-        .time-segment { background: #222; padding: 10px; border-radius: 5px; }
-    </style>
-</head>
-<body>
-    <h1>Para mi amado Lucas 🌻</h1>
-    <img class="sunflower-img" src="https://i.postimg.co/6pnZfXjG/girasoles-arte.png" alt="Girasoles">
-    <div class="message-card">
-        <p>Este mes no ha sido el mejor, pero gracias por todo. Lo amo mucho y quiero que mejoremos juntos. Feliz primer mes. 💛🌻</p>
-    </div>
-    <div class="timer">
-        <div class="time-segment"><span id="days">00</span><br>Días</div>
-        <div class="time-segment"><span id="hours">00</span><br>Hrs</div>
-        <div class="time-segment"><span id="minutes">00</span><br>Min</div>
-        <div class="time-segment"><span id="seconds">00</span><br>Seg</div>
-    </div>
-    <script>
-        const startDate = new Date('2026-04-25T00:00:00');
-        function update() {
-            const diff = new Date() - startDate;
-            document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24));
-            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24);
-            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60);
-            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
-        }
-        setInterval(update, 1000);
-        update();
-    </script>
-</body>
 </html>

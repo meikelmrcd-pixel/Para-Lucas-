@@ -2,268 +2,63 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para mi amado Lucas 🌻</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(180deg, #0b0914 0%, #161224 100%);
-            color: #fff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Fondo de estrellas parpadeantes */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            animation: starsTwinkle 4s linear infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes starsTwinkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-            100% { opacity: 0.5; }
-        }
-
-        /* Título Principal */
-        h1 {
-            font-size: 1.8rem;
-            color: #ffd700;
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.3);
-            font-weight: 600;
-        }
-
-        /* Contenedor del Ramo de Girasoles */
-        .sunflower-container {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            margin: 10px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: growBouquet 1.8s ease-out forwards;
-        }
-
-        @keyframes growBouquet {
-            0% { transform: scale(0); opacity: 0; }
-            70% { transform: scale(1.05); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Imagen del Ramo Artístico */
-        .sunflower-img {
-            width: 95%;
-            height: 95%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 25px rgba(255, 200, 0, 0.55));
-        }
-
-        /* Brillos flotantes dorados */
-        .sparkles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .sparkle {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            animation: floatSparkle 3s infinite ease-in-out;
-            box-shadow: 0 0 10px #ffd700, 0 0 15px #fff;
-        }
-
-        @keyframes floatSparkle {
-            0%, 100% { transform: translateY(0) scale(0.4); opacity: 0; }
-            50% { transform: translateY(-40px) scale(1.3); opacity: 1; }
-        }
-
-        /* Carta de Amor / Dedicatoria */
-        .message-card {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 22px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-            z-index: 2;
-        }
-
-        .message-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #f3f0ff;
-        }
-
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
-
-        /* Sección del Contador */
-        .counter-box {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 15px;
-            padding: 15px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
-            z-index: 2;
-        }
-
-        .counter-box h2 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #e3dcff;
-            margin-bottom: 12px;
-        }
-
-        .timer {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-        }
-
-        .time-segment {
-            background: rgba(15, 12, 26, 0.7);
-            padding: 8px 4px;
-            border-radius: 8px;
-            border-bottom: 2px solid #ffd700;
-        }
-
-        .time-number {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #fff;
-            display: block;
-        }
-
-        .time-label {
-            font-size: 0.6rem;
-            color: #bfaeff;
-            text-transform: uppercase;
-            margin-top: 2px;
-            display: block;
-        }
+        body { background: #0b0914; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        h1 { color: #ffd700; margin-bottom: 20px; text-align: center; }
+        
+        /* Girasol hecho con código */
+        .sunflower { position: relative; width: 150px; height: 150px; margin: 30px 0; }
+        .petals { position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite; }
+        .petal { position: absolute; width: 50px; height: 20px; background: #ffd700; border-radius: 50%; left: 50px; top: 65px; transform-origin: 25px 10px; }
+        .center { position: absolute; width: 60px; height: 60px; background: #5d4037; border-radius: 50%; top: 45px; left: 45px; z-index: 2; }
+        
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .message-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; max-width: 350px; text-align: center; }
+        .timer { display: flex; gap: 10px; margin-top: 20px; }
+        .time-segment { background: #222; padding: 10px; border-radius: 5px; }
     </style>
 </head>
 <body>
-
-    <div class="stars"></div>
-
     <h1>Para mi amado Lucas 🌻</h1>
-
-    <div class="sunflower-container">
-        <div class="sparkles">
-            <div class="sparkle" style="top: 15%; left: 15%; animation-delay: 0s; width: 5px; height: 5px;"></div>
-            <div class="sparkle" style="top: 35%; left: 85%; animation-delay: 0.4s; width: 7px; height: 7px;"></div>
-            <div class="sparkle" style="top: 65%; left: 10%; animation-delay: 0.8s; width: 6px; height: 6px;"></div>
-            <div class="sparkle" style="top: 20%; left: 75%; animation-delay: 1.2s; width: 5px; height: 5px;"></div>
-            <div class="sparkle" style="top: 55%; left: 80%; animation-delay: 1.6s; width: 6px; height: 6px;"></div>
-            <div class="sparkle" style="top: 75%; left: 45%; animation-delay: 2s; width: 4px; height: 4px;"></div>
+    
+    <div class="sunflower">
+        <div class="petals">
+            <div class="petal" style="transform: rotate(0deg)"></div>
+            <div class="petal" style="transform: rotate(45deg)"></div>
+            <div class="petal" style="transform: rotate(90deg)"></div>
+            <div class="petal" style="transform: rotate(135deg)"></div>
+            <div class="petal" style="transform: rotate(180deg)"></div>
+            <div class="petal" style="transform: rotate(225deg)"></div>
+            <div class="petal" style="transform: rotate(270deg)"></div>
+            <div class="petal" style="transform: rotate(315deg)"></div>
         </div>
-        
-        <img class="sunflower-img" src="https://i.postimg.cc/mD8rB1qB/girasoles-arte.png" alt="Ramo de Girasoles">
+        <div class="center"></div>
     </div>
 
     <div class="message-card">
-        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. Te amo, feliz primer mes. 💛🌻✨</p>
+        <p>Este mes no ha sido el mejor, pero gracias por todo. Lo amo mucho y quiero que mejoremos juntos. Feliz primer mes. 💛🌻</p>
     </div>
 
-    <div class="counter-box">
-        <h2>Tiempo Juntos</h2>
-        <div class="timer">
-            <div class="time-segment">
-                <span class="time-number" id="months">00</span>
-                <span class="time-label">Meses</span>
-            </div>
-            <div class="time-segment">
-                <span class="time-number" id="days">00</span>
-                <span class="time-label">Días</span>
-            </div>
-            <div class="time-segment">
-                <span class="time-number" id="hours">00</span>
-                <span class="time-label">Horas</span>
-            </div>
-            <div class="time-segment">
-                <span class="time-number" id="minutes">00</span>
-                <span class="time-label">Min</span>
-            </div>
-            <div class="time-segment">
-                <span class="time-number" id="seconds">00</span>
-                <span class="time-label">Seg</span>
-            </div>
-        </div>
+    <div class="timer">
+        <div class="time-segment"><span id="days">00</span><br>Días</div>
+        <div class="time-segment"><span id="hours">00</span><br>Hrs</div>
+        <div class="time-segment"><span id="minutes">00</span><br>Min</div>
+        <div class="time-segment"><span id="seconds">00</span><br>Seg</div>
     </div>
 
     <script>
         const startDate = new Date('2026-04-25T00:00:00');
-
-        function updateCounter() {
-            const now = new Date();
-            let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-            let tempDate = new Date(startDate);
-            tempDate.setMonth(tempDate.getMonth() + months);
-            
-            if (tempDate > now) {
-                months--;
-                tempDate = new Date(startDate);
-                tempDate.setMonth(tempDate.getMonth() + months);
-            }
-
-            const remainingDiff = now - tempDate;
-            const days = Math.floor(remainingDiff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((remainingDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((remainingDiff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((remainingDiff % (1000 * 60)) / 1000);
-
-            document.getElementById('months').innerText = String(months).padStart(2, '0');
-            document.getElementById('days').innerText = String(days).padStart(2, '0');
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        function update() {
+            const diff = new Date() - startDate;
+            document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24));
+            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24);
+            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60);
+            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
         }
-
-        setInterval(updateCounter, 1000);
-        updateCounter();
+        setInterval(update, 1000);
+        update();
     </script>
 </body>
 </html>

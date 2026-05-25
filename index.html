@@ -2,112 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para mi amado Lucas 🌻</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: radial-gradient(circle at center, #1e1b2e 0%, #050505 100%); 
-            color: #fff; 
-            font-family: 'Segoe UI', Tahoma, sans-serif; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 20px; 
-            overflow-x: hidden; 
-        }
-
-        h1 { 
-            font-size: 2rem; 
-            color: #ffd700; 
-            text-align: center; 
-            margin-top: 30px; 
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            letter-spacing: 1px;
-        }
-
-        .flower-container { 
-            position: relative; 
-            margin: 40px 0; 
-            animation: float 6s ease-in-out infinite; 
-            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
-        }
-
-        .flower-display { font-size: 150px; }
-
-        /* Efecto de destellos extra */
-        .glow-star { position: absolute; background: white; border-radius: 50%; opacity: 0.6; animation: twinkle 3s infinite; }
-        @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1.2); } }
-
-        .message-card { 
-            background: rgba(255, 255, 255, 0.04); 
-            backdrop-filter: blur(25px); 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            border-radius: 35px; 
-            padding: 35px; 
-            max-width: 380px; 
-            text-align: center; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            position: relative;
-        }
-
-        .highlight { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255,215,0,0.4); }
-
-        .counter-box { 
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.5); 
-            border: 2px solid rgba(255, 215, 0, 0.2); 
-            border-radius: 25px; 
-            padding: 25px; 
-            width: 100%; 
-            max-width: 350px;
-            box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.1);
-        }
-
-        .timer { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-        .time-number { font-size: 1.4rem; font-weight: bold; color: #ffd700; display: block; }
-        .time-label { font-size: 0.6rem; color: #aaa; text-transform: uppercase; margin-top: 4px; }
+        body { background: #050505; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; overflow-x: hidden; }
         
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        /* Muchos destellos de fondo */
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .sparkle { position: absolute; background: white; border-radius: 50%; animation: twinkle 3s infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0; } 50% { opacity: 1; transform: scale(1.5); } }
+
+        h1 { color: #ffd700; margin: 20px 0; z-index: 1; }
+        
+        /* Marco dorado elegante */
+        .message-card { 
+            border: 2px solid #ffd700; 
+            padding: 30px; 
+            max-width: 350px; 
+            text-align: center; 
+            border-radius: 20px; 
+            background: rgba(20, 20, 20, 0.8);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .flower-emoji { font-size: 100px; z-index: 1; animation: float 3s infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     </style>
 </head>
 <body>
+    <div class="stars" id="starContainer"></div>
     <h1>Para mi amado Lucas 🌻</h1>
-    
-    <div class="flower-container">
-        <div class="flower-display">💐</div>
-        <div class="glow-star" style="top: -10px; left: 10px; width: 8px; height: 8px;"></div>
-        <div class="glow-star" style="top: 50px; right: -10px; width: 5px; height: 5px;"></div>
-    </div>
-
+    <div class="flower-emoji">💐</div>
     <div class="message-card">
-        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <br><br><span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. <br><br>Te amo, feliz primer mes. 💛✨</p>
-    </div>
-
-    <div class="counter-box">
-        <div class="timer">
-            <div class="time-segment"><span class="time-number" id="months">00</span><span class="time-label">Meses</span></div>
-            <div class="time-segment"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
-            <div class="time-segment"><span class="time-number" id="hours">00</span><span class="time-label">Hrs</span></div>
-            <div class="time-segment"><span class="time-number" id="minutes">00</span><span class="time-label">Min</span></div>
-            <div class="time-segment"><span class="time-number" id="seconds">00</span><span class="time-label">Seg</span></div>
-        </div>
+        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto... <br><br><b>Lo amo mucho</b> y quiero que mejoremos juntos. Feliz primer mes. 💛✨</p>
     </div>
 
     <script>
-        const startDate = new Date('2026-04-25T00:00:00');
-        function updateCounter() {
-            const now = new Date();
-            let diff = now - startDate;
-            document.getElementById('months').innerText = Math.floor(diff / (1000*60*60*24*30)).toString().padStart(2, '0');
-            document.getElementById('days').innerText = Math.floor((diff / (1000*60*60*24)) % 30).toString().padStart(2, '0');
-            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24).toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60).toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+        // Generar 30 destellos automáticamente
+        const container = document.getElementById('starContainer');
+        for (let i = 0; i < 30; i++) {
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.style.width = Math.random() * 5 + 'px';
+            s.style.height = s.style.width;
+            s.style.top = Math.random() * 100 + '%';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(s);
         }
-        setInterval(updateCounter, 1000);
-        updateCounter();
     </script>
 </body>
 </html>

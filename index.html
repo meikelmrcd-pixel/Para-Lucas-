@@ -6,47 +6,73 @@
     <title>Para mi amado Lucas 🌻</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: radial-gradient(circle at center, #1a1625 0%, #0b0914 100%); color: #fff; font-family: 'Segoe UI', Roboto, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; overflow-x: hidden; }
-        
-        h1 { font-size: 1.8rem; color: #ffd700; text-align: center; margin-top: 20px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-        
-        .flower-container { position: relative; margin: 30px 0; animation: floatBouquet 4s infinite ease-in-out; }
-        @keyframes floatBouquet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        
-        .flower-display { font-size: 140px; filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4)); }
-        
-        /* Brillos */
-        .sparkle { position: absolute; background: white; border-radius: 50%; animation: twinkle 2s infinite; }
-        @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1); } }
-        
-        .message-card { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            border-radius: 25px; 
-            padding: 25px; 
-            max-width: 350px; 
-            text-align: center; 
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            margin-bottom: 25px;
+        body { 
+            background: radial-gradient(circle at center, #1e1b2e 0%, #050505 100%); 
+            color: #fff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px; 
+            overflow-x: hidden; 
         }
-        
-        .highlight { color: #ffd700; font-weight: bold; }
-        .heart { display: inline-block; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-        
+
+        h1 { 
+            font-size: 2rem; 
+            color: #ffd700; 
+            text-align: center; 
+            margin-top: 30px; 
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* Contenedor de partículas decorativas */
+        .flower-container { 
+            position: relative; 
+            margin: 40px 0; 
+            animation: float 6s ease-in-out infinite; 
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+        }
+
+        .flower-display { font-size: 150px; }
+
+        @keyframes float { 
+            0%, 100% { transform: translateY(0) rotate(0deg); } 
+            50% { transform: translateY(-20px) rotate(5deg); } 
+        }
+
+        .message-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 30px; 
+            padding: 30px; 
+            max-width: 380px; 
+            text-align: center; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .highlight { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255,215,0,0.3); }
+
         .counter-box { 
-            background: rgba(255, 215, 0, 0.05); 
-            border: 1px solid rgba(255, 215, 0, 0.2); 
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.4); 
+            border: 1px solid rgba(255, 215, 0, 0.15); 
             border-radius: 20px; 
             padding: 20px; 
+            width: 100%; 
             max-width: 350px; 
-            text-align: center; 
         }
-        .timer { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-        .time-segment { background: rgba(0,0,0,0.3); padding: 10px 5px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .time-number { font-size: 1.1rem; font-weight: bold; color: #ffd700; }
-        .time-label { font-size: 0.6rem; color: #aaa; text-transform: uppercase; display: block; }
+
+        .timer { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+        .time-segment { text-align: center; }
+        .time-number { font-size: 1.2rem; font-weight: bold; color: #fff; display: block; }
+        .time-label { font-size: 0.55rem; color: #888; text-transform: uppercase; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -54,16 +80,13 @@
     
     <div class="flower-container">
         <div class="flower-display">💐</div>
-        <div class="sparkle" style="top: 0; left: 20px; width: 6px; height: 6px;"></div>
-        <div class="sparkle" style="top: 20px; right: 0; width: 4px; height: 4px;"></div>
     </div>
 
     <div class="message-card">
-        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. Te amo, feliz primer mes. <span class="heart">💛</span>🌻✨</p>
+        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto, de verdad gracias por todo. <br><br><span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos los dos juntos como pareja. <br><br>Te amo, feliz primer mes. 💛✨</p>
     </div>
 
     <div class="counter-box">
-        <h2 style="font-size: 0.9rem; margin-bottom: 10px; color: #ffd700;">TIEMPO JUNTOS</h2>
         <div class="timer">
             <div class="time-segment"><span class="time-number" id="months">00</span><span class="time-label">Meses</span></div>
             <div class="time-segment"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>

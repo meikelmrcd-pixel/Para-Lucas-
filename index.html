@@ -5,49 +5,85 @@
     <title>Para mi amado Lucas 🌻</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #050505; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; min-height: 100vh; }
+        body { background: radial-gradient(circle at 50% 0%, #241d33 0%, #050505 100%); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; min-height: 100vh; }
         
-        /* El botón más grande y llamativo */
-        #playBtn { 
-            background: #ffd700; color: #000; border: none; padding: 20px 40px; 
-            border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; 
-            margin-top: 50px; box-shadow: 0 0 30px #ffd700; animation: pulse 2s infinite;
-        }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        h1 { font-size: 2rem; color: #ffd700; margin-top: 20px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); text-align: center; }
         
-        .flower-container { font-size: 140px; margin: 30px 0; }
-        .hidden { display: none; }
-        #mainContent { text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .flower-container { font-size: 150px; margin: 30px 0; animation: float 4s ease-in-out infinite; filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4)); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        
+        .message-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 30px; padding: 30px; max-width: 380px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .highlight { color: #ffd700; font-weight: bold; }
+
+        .counter-box { margin-top: 30px; width: 100%; max-width: 380px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .time-segment { background: rgba(255, 255, 255, 0.08); padding: 10px 5px; border-radius: 12px; border-top: 2px solid rgba(255, 215, 0, 0.5); text-align: center; }
+        .time-number { font-size: 1.2rem; font-weight: bold; color: #fff; display: block; }
+        .time-label { font-size: 0.5rem; color: #aaa; text-transform: uppercase; }
+
+        /* Estilo del botón */
+        #playBtn { background: #ffd700; color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; margin: 20px 0; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .sparkle { position: absolute; background: white; border-radius: 50%; animation: blink 3s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; transform: scale(1.2); } }
     </style>
 </head>
 <body>
-    <button id="playBtn" onclick="startExperience()">¡Presiona aquí para ver tu sorpresa! 🌻</button>
-
-    <div id="mainContent" class="hidden">
-        <h1>Para mi amado Lucas 🌻</h1>
-        <div class="flower-container">💐</div>
-        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; max-width: 350px;">
-            <p>Este mes no ha sido el mejor, pero agradezco el esfuerzo. <b>Te amo mucho</b> y quiero que mejoremos juntos. Feliz primer mes. 💛</p>
-        </div>
-    </div>
-
+    <div class="stars" id="starContainer"></div>
+    
+    <h1>Para mi amado Lucas 🌻</h1>
+    
+    <button id="playBtn" onclick="playMusic()">🎵 Escuchar "I Wanna Be Yours"</button>
     <audio id="bgMusic" loop>
         <source src="https://files.catbox.moe/k3l5m9.mp3" type="audio/mpeg">
     </audio>
+    
+    <div class="flower-container">💐</div>
+    
+    <div class="message-card">
+        <p>Este mes no ha sido el mejor que hemos tenido juntos, pero de verdad le agradezco el esfuerzo y el tiempo que le has puesto... <br><br><span class="highlight">Lo amo mucho</span> y quiero que sepa que espero que mejoremos juntos. Feliz primer mes. 💛✨</p>
+    </div>
+
+    <div class="counter-box">
+        <div class="time-segment"><span class="time-number" id="months">00</span><span class="time-label">Meses</span></div>
+        <div class="time-segment"><span class="time-number" id="days">00</span><span class="time-label">Días</span></div>
+        <div class="time-segment"><span class="time-number" id="hours">00</span><span class="time-label">Hrs</span></div>
+        <div class="time-segment"><span class="time-number" id="minutes">00</span><span class="time-label">Min</span></div>
+        <div class="time-segment"><span class="time-number" id="seconds">00</span><span class="time-label">Seg</span></div>
+    </div>
 
     <script>
-        function startExperience() {
-            const audio = document.getElementById("bgMusic");
-            const btn = document.getElementById("playBtn");
-            const content = document.getElementById("mainContent");
-            
-            audio.play().then(() => {
-                btn.style.display = "none";
-                content.classList.remove("hidden");
-            }).catch(e => {
-                alert("Toca la pantalla una vez más si no suena!");
-            });
+        // Destellos
+        const container = document.getElementById('starContainer');
+        for (let i = 0; i < 50; i++) {
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.style.width = Math.random() * 4 + 'px';
+            s.style.height = s.style.width;
+            s.style.top = Math.random() * 100 + '%';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(s);
         }
+
+        function playMusic() {
+            const audio = document.getElementById("bgMusic");
+            audio.play();
+            document.getElementById("playBtn").innerText = "🎶 Sonando...";
+        }
+
+        // Contador
+        function updateCounter() {
+            const start = new Date('2026-04-25T00:00:00');
+            const now = new Date();
+            let diff = now - start;
+            document.getElementById('months').innerText = Math.floor(diff / (1000*60*60*24*30)).toString().padStart(2, '0');
+            document.getElementById('days').innerText = Math.floor((diff / (1000*60*60*24)) % 30).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60).toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
     </script>
 </body>
 </html>
